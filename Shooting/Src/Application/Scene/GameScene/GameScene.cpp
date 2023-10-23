@@ -5,7 +5,6 @@
 #include "../../Object/Saturn/Saturn.h"
 #include "../../Object/Rock/Rock.h"
 #include "../../Object/Enemy/Enemy.h"
-#include "../../Object/GavityValidObjectPos/GavityValidObjectPos.h"
 #include "../SceneManager.h"
 
 void GameScene::Event()
