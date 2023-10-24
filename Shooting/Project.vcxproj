@@ -157,6 +157,11 @@
     <ClInclude Include="Src\Application\Scene\GameScene\GameScene.h" />
     <ClInclude Include="Src\Application\Scene\SceneManager.h" />
     <ClInclude Include="Src\Application\Scene\TitleScene\TitleScene.h" />
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\EnemyBaseState.h" />
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\EnemyStateManager.h" />
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Laser\EnemyLaser.h" />
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Normal\EnemyNormal.h" />
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Rush\EnemyRush.h" />
     <ClInclude Include="Src\Framework\Direct3D\KdMaterial.h" />
     <ClInclude Include="Src\Framework\Direct3D\Polygon\KdPolygon.h" />
     <ClInclude Include="Src\Framework\Direct3D\Polygon\KdSquarePolygon.h" />
@@ -206,6 +211,10 @@
     <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Src\Application\Scene\SceneManager.cpp" />
     <ClCompile Include="Src\Application\Scene\TitleScene\TitleScene.cpp" />
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\EnemyStateManager.cpp" />
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Laser\EnemyLaser.cpp" />
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Normal\EnemyNormal.cpp" />
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Rush\EnemyRush.cpp" />
     <ClCompile Include="Src\Framework\Direct3D\KdMaterial.cpp">
       <SubType>
       </SubType>

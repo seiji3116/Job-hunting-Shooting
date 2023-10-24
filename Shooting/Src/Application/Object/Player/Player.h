@@ -53,7 +53,6 @@ private:
 		Math::Vector3 Vec;
 	};
 
-
 	std::shared_ptr<KdModelWork> m_model;	// モデル情報
 	std::weak_ptr<TPSCamera> m_camera;		// カメラ情報
 	float m_roll = 0;						// z軸用回転量
@@ -72,4 +71,5 @@ private:
 	// フラグ関係
 	bool m_keyFlg;
 	bool m_gravityKeyFlg;
+	bool m_throwKeyFlg;
 };

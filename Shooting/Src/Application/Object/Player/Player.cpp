@@ -53,6 +53,7 @@ void Player::Init()
 	m_keyFlg = false;
 	m_gravityKeyFlg = false;
 	m_gravityFlg = false;
+	m_throwKeyFlg = false;
 
 	// ƒ‚ƒfƒ‹‚Ì“Ç
 	m_model = std::make_shared<KdModelWork>();
@@ -249,19 +250,17 @@ void Player::GravityThrow()
 
 	if (GetAsyncKeyState(VK_RBUTTON) & 0x8000)
 	{
-		if (!m_gravityKeyFlg && !m_gravityFlg)
+		if (!m_gravityKeyFlg && !m_throwKeyFlg)
 		{
-			m_gravityKeyFlg = true;
+			m_throwKeyFlg = true;
 
-			//auto it = m_gravityList.begin();
+			auto& it = m_gravityList.begin();
 			(*m_gravityList.begin())->ChengeThrow(m_mWorld.Backward());
-
-			//Á‚·
-			//m_gravityList.erase(it);
+			m_gravityList.erase(it);
 		}
 	}
 	else
 	{
-		m_gravityKeyFlg = false;
+		m_throwKeyFlg = false;
 	}
 }

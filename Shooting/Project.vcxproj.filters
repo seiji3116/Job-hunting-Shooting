@@ -97,6 +97,27 @@
     <Filter Include="Src\Application\Object\Rock">
       <UniqueIdentifier>{1848d0fa-4efd-43ce-8bfb-d11deb07daec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\StatePattern">
+      <UniqueIdentifier>{0fbe449b-1393-42a7-9b8d-80fce411a0e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\StatePattern\PlayerState">
+      <UniqueIdentifier>{941a2ff2-5d96-4b82-8145-25329bcd9621}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\StatePattern\EnemyState">
+      <UniqueIdentifier>{9cf3a52a-5e79-4d98-bea9-e666e484b536}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\StatePattern\EnemyState\StateList">
+      <UniqueIdentifier>{3e723566-61eb-48f1-a436-d803091539f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\StatePattern\EnemyState\StateList\Normal">
+      <UniqueIdentifier>{dece9b40-a0ce-45b0-b304-d968a1e9b4b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\StatePattern\EnemyState\StateList\Rush">
+      <UniqueIdentifier>{31e43c33-6fc4-4fdc-b05e-0eab6a12048d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\StatePattern\EnemyState\StateList\Laser">
+      <UniqueIdentifier>{d8db2ad7-bfdb-46e8-8bcc-90be4c9e184c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -255,6 +276,21 @@
     <ClInclude Include="Src\Application\Object\Rock\Rock.h">
       <Filter>Src\Application\Object\Rock</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\EnemyBaseState.h">
+      <Filter>Src\Application\StatePattern\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\EnemyStateManager.h">
+      <Filter>Src\Application\StatePattern\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Laser\EnemyLaser.h">
+      <Filter>Src\Application\StatePattern\EnemyState\StateList\Laser</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Rush\EnemyRush.h">
+      <Filter>Src\Application\StatePattern\EnemyState\StateList\Rush</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Normal\EnemyNormal.h">
+      <Filter>Src\Application\StatePattern\EnemyState\StateList\Normal</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -391,6 +427,18 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Object\Rock\Rock.cpp">
       <Filter>Src\Application\Object\Rock</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\EnemyStateManager.cpp">
+      <Filter>Src\Application\StatePattern\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Laser\EnemyLaser.cpp">
+      <Filter>Src\Application\StatePattern\EnemyState\StateList\Laser</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Rush\EnemyRush.cpp">
+      <Filter>Src\Application\StatePattern\EnemyState\StateList\Rush</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Normal\EnemyNormal.cpp">
+      <Filter>Src\Application\StatePattern\EnemyState\StateList\Normal</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
