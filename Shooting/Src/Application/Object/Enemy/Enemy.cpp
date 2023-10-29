@@ -1,11 +1,22 @@
 #include "Enemy.h"
+#include "../Player/Player.h"
 
 void Enemy::Update()
 {
+	std::shared_ptr<Player> spPlayer = m_wpPlayer.lock();
+	if (spPlayer)
+	{
+		m_stateMan->SetTargetPos(spPlayer->GetPos());
+	}
+	m_stateMan->Update();
+	m_pos = m_stateMan->GetPos();
 }
 
 void Enemy::PostUpdate()
 {
+	Math::Matrix transMat = Math::Matrix::CreateTranslation(m_pos);
+
+	m_mWorld = transMat;
 }
 
 void Enemy::GenerateDepthMapFromLight()
@@ -21,8 +32,13 @@ void Enemy::DrawLit()
 void Enemy::Init()
 {
 	m_model = std::make_shared<KdModelWork>();
-	m_model->SetModelData(KdAssets::Instance().m_modeldatas.GetData("Asset/Models/Enemy/Enemy.gltf"));
 
+	// 初期ステートセット
+	m_stateMan = std::make_shared<EnemyStateManager>();
+	m_stateMan->ChengeRush();
+	m_model = m_stateMan->GetModel();
+
+	// デバッグワイヤーセット
 	m_pDebugWire = std::make_unique<KdDebugWireFrame>();
 
 	//当たり判定初期化

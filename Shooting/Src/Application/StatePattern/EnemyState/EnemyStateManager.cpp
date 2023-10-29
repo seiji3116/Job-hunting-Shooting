@@ -3,14 +3,14 @@
 #include "StateList/Rush/EnemyRush.h"
 #include "StateList/Laser/EnemyLaser.h"
 
-void EnemyStateManager::Init()
-{
-	m_nowState->Init();
-}
-
 void EnemyStateManager::Update()
 {
 	m_nowState->Update();
+}
+
+void EnemyStateManager::PostUpdate()
+{
+	m_nowState->PostUpdate();
 }
 
 void EnemyStateManager::Action()
@@ -18,9 +18,24 @@ void EnemyStateManager::Action()
 	m_nowState->Action();
 }
 
-std::shared_ptr<KdModelWork> EnemyStateManager::GetModel()
+std::shared_ptr<KdModelWork> EnemyStateManager::GetModel() const
 {
 	return m_nowState->GetModel();
+}
+
+Math::Vector3 EnemyStateManager::GetPos() const
+{
+	return m_nowState->GetPos();
+}
+
+Math::Vector3 EnemyStateManager::GetMoveDir() const
+{
+	return m_nowState->GetMoveDir();
+}
+
+void EnemyStateManager::SetTargetPos(const Math::Vector3& _pos)
+{
+	m_nowState->SetTargetPos(_pos);
 }
 
 void EnemyStateManager::ChengeRush()

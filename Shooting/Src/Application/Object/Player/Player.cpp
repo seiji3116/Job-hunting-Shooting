@@ -254,6 +254,10 @@ void Player::GravityThrow()
 		{
 			m_throwKeyFlg = true;
 
+			if (m_gravityList.size() <= 0)
+			{
+				return;
+			}
 			auto& it = m_gravityList.begin();
 			(*m_gravityList.begin())->ChengeThrow(m_mWorld.Backward());
 			m_gravityList.erase(it);

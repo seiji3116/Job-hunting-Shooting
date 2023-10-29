@@ -2,7 +2,6 @@
 
 class KdDebugWireFrame;
 
-
 // ゲーム上に存在するすべてのオブジェクトの基底となるクラス
 class KdGameObject : public std::enable_shared_from_this<KdGameObject>
 {

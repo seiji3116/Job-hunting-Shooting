@@ -1,4 +1,7 @@
 #pragma once
+#include "../../StatePattern/EnemyState/EnemyStateManager.h"
+
+class Player;
 
 class Enemy : public KdGameObject
 {
@@ -13,7 +16,17 @@ public:
 	void Update()override;
 	void PostUpdate()override;
 
+	void SetPlayer(std::shared_ptr<Player> _player)
+	{
+		m_wpPlayer = _player;
+	}
+
 private:
+
+	std::shared_ptr<EnemyStateManager> m_stateMan;
+
+	std::weak_ptr<Player> m_wpPlayer;
+
 	std::shared_ptr<KdModelWork> m_model;
 
 	Math::Vector3 m_pos;

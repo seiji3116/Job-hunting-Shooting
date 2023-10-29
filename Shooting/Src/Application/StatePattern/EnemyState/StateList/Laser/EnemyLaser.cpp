@@ -8,6 +8,10 @@ void EnemyLaser::Update()
 {
 }
 
+void EnemyLaser::PostUpdate()
+{
+}
+
 void EnemyLaser::Shot()
 {
 }

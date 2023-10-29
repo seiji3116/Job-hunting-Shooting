@@ -27,6 +27,7 @@ void GameScene::Init()
 
 	std::shared_ptr<Player> player;
 	player = std::make_shared<Player>();
+	enemy->SetPlayer(player);
 	saturn->SetPlayer(player);
 	AddObject(player);
 

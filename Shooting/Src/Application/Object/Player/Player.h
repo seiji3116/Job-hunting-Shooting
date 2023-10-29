@@ -35,9 +35,17 @@ public:
 		return m_gravityFlg;
 	}
 
-	void PushBackGravityList(Rock* _rock)
+	bool PushBackGravityList(Rock* _rock)
 	{
-		m_gravityList.push_back(_rock);
+		if (m_gravityList.size() < 3)
+		{
+			m_gravityList.push_back(_rock);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 private:

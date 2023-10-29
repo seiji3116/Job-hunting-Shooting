@@ -20,8 +20,10 @@ void Rock::Gravity()
 	{
 		if (m_playerVec.Length() < 5)
 		{
-			spPlayer->PushBackGravityList(this);
-			m_gravityFlg = true;
+			if (spPlayer->PushBackGravityList(this))
+			{
+				m_gravityFlg = true;
+			}
 		}
 	}
 

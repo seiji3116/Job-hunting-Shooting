@@ -9,12 +9,16 @@ public:
 	EnemyStateManager(){}
 
 public:
-	// 主な処理
-	void Init();
+	// Baseの関数呼び出し用
 	void Update();
+	void PostUpdate();
 	void Action();
-	std::shared_ptr<KdModelWork> GetModel();
+	std::shared_ptr<KdModelWork> GetModel() const;
+	Math::Vector3 GetPos() const;
+	Math::Vector3 GetMoveDir() const;
+	void SetTargetPos(const Math::Vector3& _pos);
 
+public:
 	// ステートの切り替え
 	void ChengeRush();		// 突進
 	void ChengeLaser();		// レーザーの発射
