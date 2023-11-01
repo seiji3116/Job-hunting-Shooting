@@ -2,6 +2,7 @@
 #include "StateList/Normal/EnemyNormal.h"
 #include "StateList/Rush/EnemyRush.h"
 #include "StateList/Laser/EnemyLaser.h"
+#include "StateList/Tracking/EnemyTracking.h"
 
 void EnemyStateManager::Update()
 {
@@ -33,9 +34,34 @@ Math::Vector3 EnemyStateManager::GetMoveDir() const
 	return m_nowState->GetMoveDir();
 }
 
-void EnemyStateManager::SetTargetPos(const Math::Vector3& _pos)
+Math::Matrix EnemyStateManager::GetMatrix() const
 {
-	m_nowState->SetTargetPos(_pos);
+	return m_nowState->GetMatrix();
+}
+
+float EnemyStateManager::GetActionCnt() const
+{
+	return m_nowState->GetActionCnt();
+}
+
+bool EnemyStateManager::GetActionEndFlg() const
+{
+	return m_nowState->GetActionEndFlg();
+}
+
+void EnemyStateManager::SetTargetDir(const Math::Vector3& _dir)
+{
+	m_nowState->SetTargetDir(_dir);
+}
+
+void EnemyStateManager::SetMoveDir(const Math::Vector3& _moveDir)
+{
+	m_nowState->SetMoveDir(_moveDir);
+}
+
+void EnemyStateManager::SetMatrix(const Math::Matrix& _matrix)
+{
+	m_nowState->SetMatrix(_matrix);
 }
 
 void EnemyStateManager::ChengeRush()
@@ -53,6 +79,12 @@ void EnemyStateManager::ChengeLaser()
 void EnemyStateManager::ChengeNormal()
 {
 	std::shared_ptr<EnemyNormal> state = std::make_shared<EnemyNormal>();
+	ChengeState(state);
+}
+
+void EnemyStateManager::ChengeTracking()
+{
+	std::shared_ptr<EnemyTracking> state = std::make_shared<EnemyTracking>();
 	ChengeState(state);
 }
 

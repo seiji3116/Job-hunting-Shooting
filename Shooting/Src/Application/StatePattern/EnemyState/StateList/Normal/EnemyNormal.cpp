@@ -10,19 +10,19 @@ void EnemyNormal::Init()
 
 void EnemyNormal::Update()
 {
-	Math::Vector3 targetDir = m_targetPos - m_pos;
+	//Math::Vector3 targetDir = m_targetPos - m_pos;
 
-	if (targetDir.Length() < 10)
-	{
-		
-	}
+	//if (targetDir.Length() < 10)
+	//{
+	//	
+	//}
 
-	targetDir.Normalize();
+	//targetDir.Normalize();
 
-	m_moveDir = targetDir;
+	//m_moveDir = targetDir;
 
-	m_moveDir.Normalize();
-	m_pos += m_moveDir * m_moveSpd;
+	//m_moveDir.Normalize();
+	//m_pos += m_moveDir * m_moveSpd;
 }
 
 void EnemyNormal::PostUpdate()
@@ -37,4 +37,8 @@ void EnemyNormal::Shot()
 void EnemyNormal::Action()
 {
 	Shot();
+}
+
+void EnemyNormal::Rotate(Math::Vector3 _targetDir)
+{
 }

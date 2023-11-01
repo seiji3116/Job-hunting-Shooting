@@ -27,7 +27,9 @@ public:
 		m_throwFlg = true;
 	}
 private:
+	void Throw();
 	void Gravity();
+	void Rotate(Math::Vector3 _targetDir);
 
 private:
 

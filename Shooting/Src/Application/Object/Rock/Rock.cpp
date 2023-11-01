@@ -4,19 +4,11 @@
 
 void Rock::Update()
 {
-	//m_transMat = Math::Matrix::CreateTranslation(m_pos);
-	//m_rotateMat = Math::Matrix::CreateRotationY(DirectX::XMConvertToRadians(m_angle));
-	//m_mWorld = m_rotateMat * m_mWorld;
-	Gravity();
-}
-
-void Rock::Gravity()
-{
 	std::shared_ptr<Player> spPlayer = m_wpPlayer.lock();
 
 	m_playerVec = spPlayer->GetPos() - m_mWorld.Translation();
 
-	if (spPlayer->GetGravityFlg() && !m_gravityFlg && !m_throwFlg)
+	if (spPlayer->GetGravityFlg())
 	{
 		if (m_playerVec.Length() < 5)
 		{
@@ -27,32 +19,68 @@ void Rock::Gravity()
 		}
 	}
 
-	if (m_gravityFlg)
+	Gravity();
+	Throw();
+}
+
+void Rock::Throw()
+{
+	if (!m_throwFlg) { return; }
+
+	m_targetVec.Normalize();
+
+	Math::Vector3 pos = GetPos();
+
+	pos += m_targetVec * m_gravityPow;
+
+	m_mWorld.Translation(pos);
+
+	if (m_playerVec.Length() > 30)
 	{
-		m_playerVec.Normalize();
-
-		Math::Vector3 pos = GetPos();
-
-		pos += m_playerVec * m_gravityPow;
-
-		m_mWorld.Translation(pos);
+		m_isExpired = true;
 	}
+}
 
-	if (m_throwFlg)
-	{
-		m_targetVec.Normalize();
+void Rock::Gravity()
+{
+	if (!m_gravityFlg) { return; }
 
-		Math::Vector3 pos = GetPos();
+	Math::Vector3 vMove = m_mWorld.Forward();
+	vMove.Normalize();
 
-		pos += m_targetVec * m_gravityPow;
+	vMove *= 0.2;
+	Math::Matrix trans = Math::Matrix::CreateTranslation(vMove);
+	m_mWorld *= trans;
 
-		m_mWorld.Translation(pos);
+	Rotate(m_playerVec);
+}
 
-		if (m_playerVec.Length() > 30)
-		{
-			m_isExpired = true;
-		}
-	}
+void Rock::Rotate(Math::Vector3 _targetDir)
+{
+	Math::Vector3 nowDir = m_mWorld.Forward();
+	nowDir.Normalize();
+	_targetDir.Normalize();
+
+	float dot = nowDir.Dot(_targetDir);
+	dot = std::clamp(dot, -1.f, 1.f);
+
+	float betweeanAng = acos(dot);
+	betweeanAng = DirectX::XMConvertToDegrees(betweeanAng);
+
+	float rotateAng = std::clamp(betweeanAng, -4.f, 4.f);
+
+	Math::Vector3 rotAxis;
+	nowDir.Cross(_targetDir, rotAxis);
+	if (rotAxis.LengthSquared() == 0)return;
+
+	Math::Matrix rotation;
+	rotation = Math::Matrix::CreateFromAxisAngle(rotAxis, DirectX::XMConvertToRadians(rotateAng));
+
+	Math::Vector3 pos = GetPos();
+	m_mWorld.Translation(Math::Vector3(0, 0, 0));
+
+	m_mWorld *= rotation;
+	m_mWorld.Translation(pos);
 }
 
 void Rock::GenerateDepthMapFromLight()

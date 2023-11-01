@@ -1,7 +1,7 @@
 #pragma once
 #include "../../EnemyBaseState.h"
 
-class EnemyLaser :public EnemyBaseState
+class EnemyTracking :public EnemyBaseState
 {
 public:
 	void Init()override;
@@ -12,5 +12,4 @@ public:
 
 private:
 	void Rotate(Math::Vector3 _targetDir) override;
-
 };

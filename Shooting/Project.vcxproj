@@ -162,6 +162,7 @@
     <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Laser\EnemyLaser.h" />
     <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Normal\EnemyNormal.h" />
     <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Rush\EnemyRush.h" />
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Tracking\EnemyTracking.h" />
     <ClInclude Include="Src\Framework\Direct3D\KdMaterial.h" />
     <ClInclude Include="Src\Framework\Direct3D\Polygon\KdPolygon.h" />
     <ClInclude Include="Src\Framework\Direct3D\Polygon\KdSquarePolygon.h" />
@@ -215,6 +216,7 @@
     <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Laser\EnemyLaser.cpp" />
     <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Normal\EnemyNormal.cpp" />
     <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Rush\EnemyRush.cpp" />
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Tracking\EnemyTracking.cpp" />
     <ClCompile Include="Src\Framework\Direct3D\KdMaterial.cpp">
       <SubType>
       </SubType>

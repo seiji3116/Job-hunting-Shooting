@@ -1,21 +1,16 @@
-#include "EnemyRush.h"
+#include "EnemyTracking.h"
 
-void EnemyRush::Init()
+void EnemyTracking::Init()
 {
 	m_model = std::make_shared<KdModelWork>();
 	m_model->SetModelData(KdAssets::Instance().m_modeldatas.GetData("Asset/Models/Enemy/Enemy.gltf"));
 
-	m_moveSpd = 0;
-	m_standCnt = 100;
-	m_actionCnt = 0;
-	m_rashFlg = false;
-	m_actionEndFlg = false;
+	m_moveSpd = 0.5f;
+	m_actionEndFlg = true;
 }
 
-void EnemyRush::Update()
+void EnemyTracking::Update()
 {
-	Action();
-
 	Math::Vector3 vMove = m_mWorld.Forward();
 	vMove.Normalize();
 
@@ -23,53 +18,23 @@ void EnemyRush::Update()
 	Math::Matrix trans = Math::Matrix::CreateTranslation(vMove);
 	m_mWorld *= trans;
 
-	if (!m_rashFlg)
-	{
-		Rotate(m_targetDir);
-	}
+	Rotate(m_targetDir);
 }
 
-void EnemyRush::PostUpdate()
+void EnemyTracking::PostUpdate()
+{
+
+}
+
+void EnemyTracking::Shot()
 {
 }
 
-void EnemyRush::Shot()
+void EnemyTracking::Action()
 {
 }
 
-void EnemyRush::Action()
-{
-	Stand();
-	Rush();
-}
-
-void EnemyRush::Rush()
-{
-	if (!m_rashFlg) { return; }
-
-	m_actionCnt--;
-	if (m_actionCnt < 0)
-	{
-		m_moveSpd = 0;
-		m_actionEndFlg = true;
-	}
-}
-
-void EnemyRush::Stand()
-{
-	if (m_rashFlg) { return; }
-
-	m_moveSpd = 0;
-	m_standCnt--;
-	if (m_standCnt < 0)
-	{
-		m_standCnt = 0;
-		m_rashFlg = true;
-		m_moveSpd = 0.7f;
-	}
-}
-
-void EnemyRush::Rotate(Math::Vector3 _targetDir)
+void EnemyTracking::Rotate(Math::Vector3 _targetDir)
 {
 	Math::Vector3 nowDir = m_mWorld.Forward();
 	nowDir.Normalize();

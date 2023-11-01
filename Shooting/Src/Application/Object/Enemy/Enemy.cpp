@@ -6,17 +6,37 @@ void Enemy::Update()
 	std::shared_ptr<Player> spPlayer = m_wpPlayer.lock();
 	if (spPlayer)
 	{
-		m_stateMan->SetTargetPos(spPlayer->GetPos());
+		Math::Vector3 targetDir = spPlayer->GetPos() - m_mWorld.Translation();
+
+		if (m_stateMan->GetActionEndFlg())
+		{
+			if (targetDir.Length() < 2)
+			{
+				m_stateMan->ChengeRush();
+				m_model = m_stateMan->GetModel();
+				m_stateMan->SetMoveDir(targetDir);
+				m_stateMan->SetTargetDir(targetDir);
+				m_stateMan->SetMatrix(m_mWorld);
+			}
+			else
+			{
+				m_stateMan->ChengeTracking();
+				m_model = m_stateMan->GetModel();
+			}
+		}
+		m_stateMan->SetTargetDir(targetDir);
 	}
+
+	m_stateMan->SetMatrix(m_mWorld);
 	m_stateMan->Update();
-	m_pos = m_stateMan->GetPos();
+	m_mWorld = m_stateMan->GetMatrix();
 }
 
 void Enemy::PostUpdate()
 {
-	Math::Matrix transMat = Math::Matrix::CreateTranslation(m_pos);
+	//Math::Matrix transMat = Math::Matrix::CreateTranslation(m_pos);
 
-	m_mWorld = transMat;
+	//m_mWorld = m_rotateMat * transMat;
 }
 
 void Enemy::GenerateDepthMapFromLight()
@@ -34,9 +54,11 @@ void Enemy::Init()
 	m_model = std::make_shared<KdModelWork>();
 
 	// 初期ステートセット
-	m_stateMan = std::make_shared<EnemyStateManager>();
-	m_stateMan->ChengeRush();
+	m_stateMan = std::make_unique<EnemyStateManager>();
+	m_stateMan->ChengeTracking();
 	m_model = m_stateMan->GetModel();
+
+	m_moveDir = Math::Vector3(0, 0, 1);
 
 	// デバッグワイヤーセット
 	m_pDebugWire = std::make_unique<KdDebugWireFrame>();

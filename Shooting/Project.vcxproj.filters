@@ -118,6 +118,9 @@
     <Filter Include="Src\Application\StatePattern\EnemyState\StateList\Laser">
       <UniqueIdentifier>{d8db2ad7-bfdb-46e8-8bcc-90be4c9e184c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\StatePattern\EnemyState\StateList\Tracking">
+      <UniqueIdentifier>{bdc08475-252e-4e12-8982-fa2be0e28bcf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -291,6 +294,9 @@
     <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Normal\EnemyNormal.h">
       <Filter>Src\Application\StatePattern\EnemyState\StateList\Normal</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Tracking\EnemyTracking.h">
+      <Filter>Src\Application\StatePattern\EnemyState\StateList\Tracking</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -439,6 +445,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Normal\EnemyNormal.cpp">
       <Filter>Src\Application\StatePattern\EnemyState\StateList\Normal</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Tracking\EnemyTracking.cpp">
+      <Filter>Src\Application\StatePattern\EnemyState\StateList\Tracking</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

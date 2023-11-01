@@ -11,4 +11,6 @@ public:
 	void Action()override;
 
 private:
+	void Rotate(Math::Vector3 _targetDir) override;
+
 };

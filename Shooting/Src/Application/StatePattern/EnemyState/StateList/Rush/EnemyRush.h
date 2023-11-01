@@ -11,8 +11,10 @@ public:
 	void Action()override;
 
 private:
-	bool m_rashFlg;
-	bool m_standFlg;
+	void Rush();
+	void Stand();
+	void Rotate(Math::Vector3 _targetDir) override;
 
-	float m_rashCnt;
+private:
+	bool m_rashFlg;
 };
