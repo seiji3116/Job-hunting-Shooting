@@ -10,18 +10,18 @@ void Enemy::Update()
 
 		if (m_stateMan->GetActionEndFlg())
 		{
-			if (targetDir.Length() < 2)
+			if (targetDir.Length() > 2)
+			{
+				m_stateMan->ChengeTracking();
+				m_model = m_stateMan->GetModel();
+			}
+			else
 			{
 				m_stateMan->ChengeRush();
 				m_model = m_stateMan->GetModel();
 				m_stateMan->SetMoveDir(targetDir);
 				m_stateMan->SetTargetDir(targetDir);
 				m_stateMan->SetMatrix(m_mWorld);
-			}
-			else
-			{
-				m_stateMan->ChengeTracking();
-				m_model = m_stateMan->GetModel();
 			}
 		}
 		m_stateMan->SetTargetDir(targetDir);
@@ -56,6 +56,7 @@ void Enemy::Init()
 	// 初期ステートセット
 	m_stateMan = std::make_unique<EnemyStateManager>();
 	m_stateMan->ChengeTracking();
+	m_nowState = State::Tracking;
 	m_model = m_stateMan->GetModel();
 
 	m_moveDir = Math::Vector3(0, 0, 1);

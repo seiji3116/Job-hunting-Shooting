@@ -22,6 +22,13 @@ public:
 	}
 
 private:
+	enum State
+	{
+		Tracking,
+		Normal,
+		Rush,
+		Laser
+	};
 
 private:
 	std::unique_ptr<EnemyStateManager> m_stateMan;
@@ -39,4 +46,6 @@ private:
 
 	float m_roll = 0;						// z軸用回転量
 	float m_pitch = 0;						// x軸用回転量
+
+	State m_nowState;						// 現在のステート
 };
