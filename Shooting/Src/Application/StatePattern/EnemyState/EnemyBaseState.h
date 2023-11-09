@@ -32,6 +32,8 @@ public:
 	void SetTargetDir(const Math::Vector3& _dir) { m_targetDir = _dir; }
 	void SetMoveDir(const Math::Vector3& _moveDir) { m_moveDir = _moveDir; }
 	void SetMatrix(const Math::Matrix& _matrix) { m_mWorld = _matrix; }
+	void SetTargetPos(const Math::Vector3& _pos) { m_targetPos = _pos; }
+	void SetPos(const Math::Vector3& _pos) { m_mWorld.Translation(_pos); }
 
 protected:
 	virtual void Rotate(Math::Vector3 _targetDir) = 0;	// 回転処理
@@ -41,10 +43,10 @@ protected:
 
 	Math::Matrix m_mWorld;							// ワールド行列
 
-	//Math::Vector3 m_pos = Math::Vector3::Zero;		// 座標
 	Math::Vector3 m_moveDir = Math::Vector3::Zero;	// 移動ベクトル
 	float m_moveSpd = 0;							// 移動speed
-	Math::Vector3 m_targetDir = Math::Vector3::Zero;// ターゲットの座標
+	Math::Vector3 m_targetDir = Math::Vector3::Zero;// ターゲットへの方向ベクトル
+	Math::Vector3 m_targetPos = Math::Vector3::Zero;// ターゲットの座標
 
 	float m_standCnt = 0;							// 各挙動をするときの待機時間
 	float m_actionCnt = 1;							// 各挙動を実行しているときの時間

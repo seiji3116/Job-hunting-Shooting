@@ -54,6 +54,11 @@ void EnemyStateManager::SetTargetDir(const Math::Vector3& _dir)
 	m_nowState->SetTargetDir(_dir);
 }
 
+void EnemyStateManager::SetTargetPos(const Math::Vector3& _pos)
+{
+	m_nowState->SetTargetPos(_pos);
+}
+
 void EnemyStateManager::SetMoveDir(const Math::Vector3& _moveDir)
 {
 	m_nowState->SetMoveDir(_moveDir);
@@ -62,6 +67,11 @@ void EnemyStateManager::SetMoveDir(const Math::Vector3& _moveDir)
 void EnemyStateManager::SetMatrix(const Math::Matrix& _matrix)
 {
 	m_nowState->SetMatrix(_matrix);
+}
+
+void EnemyStateManager::SetPos(const Math::Vector3& _pos)
+{
+	m_nowState->SetPos(_pos);
 }
 
 void EnemyStateManager::ChengeRush()

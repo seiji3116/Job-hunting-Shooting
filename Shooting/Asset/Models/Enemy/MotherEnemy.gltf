@@ -3,43 +3,89 @@
 		"generator":"Khronos glTF Blender I/O v3.6.27",
 		"version":"2.0"
 	},
+	"extensionsUsed":[
+		"KHR_materials_ior"
+	],
 	"scene":0,
 	"scenes":[
 		{
 			"name":"Scene",
 			"nodes":[
-				0
+				0,
+				1,
+				2,
+				3
 			]
 		}
 	],
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"GalactixRacer",
+			"name":"DualStriker",
 			"rotation":[
-				0.70710688829422,
 				0,
+				-0.7071066498756409,
+				0.7071069478988647,
+				3.0908616110991716e-08
+			],
+			"scale":[
+				6.399999141693115,
+				6.399999141693115,
+				6.399999141693115
+			]
+		},
+		{
+			"name":"LaserPos0",
+			"translation":[
 				0,
-				0.7071066498756409
+				13,
+				25
+			]
+		},
+		{
+			"name":"LaserPos1",
+			"translation":[
+				25,
+				13,
+				-25
+			]
+		},
+		{
+			"name":"LaserPos2",
+			"translation":[
+				-25,
+				13,
+				-25
 			]
 		}
 	],
 	"materials":[
 		{
 			"doubleSided":true,
-			"name":"\u30de\u30c6\u30ea\u30a2\u30eb",
+			"extensions":{
+				"KHR_materials_specular":{
+					"specularColorFactor":[
+						0,
+						0,
+						0
+					]
+				},
+				"KHR_materials_ior":{
+					"ior":1.4500000476837158
+				}
+			},
+			"name":"palette",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":0
 				},
-				"metallicFactor":0,
-				"roughnessFactor":0.5
+				"metallicFactor":0
 			}
 		}
 	],
 	"meshes":[
 		{
-			"name":"GalactixRacer",
+			"name":"DualStriker",
 			"primitives":[
 				{
 					"attributes":{
@@ -62,69 +108,69 @@
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"GalactixRacer.png",
-			"uri":"GalactixRacer.png"
+			"name":"MotherEnemy.png",
+			"uri":"Texture/MotherEnemy.png"
 		}
 	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":6454,
+			"count":19463,
 			"max":[
-				2.356529951095581,
-				3.2253334522247314,
-				0.675373375415802
+				3.3031933307647705,
+				4.180685043334961,
+				0.7838788032531738
 			],
 			"min":[
-				-2.3434698581695557,
-				-3.2746665477752686,
-				-0.9246266484260559
+				-3.396806478500366,
+				-4.819314956665039,
+				-0.8161212205886841
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":6454,
+			"count":19463,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":6454,
+			"count":19463,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":12012,
+			"count":36888,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":77448,
+			"byteLength":233556,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":77448,
-			"byteOffset":77448,
+			"byteLength":233556,
+			"byteOffset":233556,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":51632,
-			"byteOffset":154896,
+			"byteLength":155704,
+			"byteOffset":467112,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":24024,
-			"byteOffset":206528,
+			"byteLength":73776,
+			"byteOffset":622816,
 			"target":34963
 		}
 	],
@@ -136,8 +182,8 @@
 	],
 	"buffers":[
 		{
-			"byteLength":230552,
-			"uri":"Enemy.bin"
+			"byteLength":696592,
+			"uri":"MotherEnemy.bin"
 		}
 	]
 }

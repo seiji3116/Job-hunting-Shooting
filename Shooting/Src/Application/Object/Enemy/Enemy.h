@@ -21,6 +21,8 @@ public:
 		m_wpPlayer = _player;
 	}
 
+	void SetState(const std::string& _stateName);
+
 private:
 	enum State
 	{
@@ -37,7 +39,7 @@ private:
 
 	std::shared_ptr<KdModelWork> m_model;
 
-	Math::Vector3 m_pos;
+	//Math::Vector3 m_pos;
 	Math::Vector3 m_moveDir;
 	Math::Vector3 m_scale;
 	Math::Matrix m_transMat;				// ˆÚ“®s—ñ

@@ -20,8 +20,10 @@ public:
 	float GetActionCnt() const;
 	bool GetActionEndFlg() const;
 	void SetTargetDir(const Math::Vector3& _dir);
+	void SetTargetPos(const Math::Vector3& _pos);
 	void SetMoveDir(const Math::Vector3& _moveDir);
 	void SetMatrix(const Math::Matrix& _matrix);
+	void SetPos(const Math::Vector3& _pos);
 
 public:
 	// ステートの切り替え

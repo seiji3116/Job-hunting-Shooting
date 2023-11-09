@@ -149,9 +149,9 @@
     <ClInclude Include="Src\Application\Object\Camera\CameraBase.h" />
     <ClInclude Include="Src\Application\Object\Camera\TPSCamera\TPSCamera.h" />
     <ClInclude Include="Src\Application\Object\Enemy\Enemy.h" />
+    <ClInclude Include="Src\Application\Object\MotherEnemy\MotherEnemy.h" />
     <ClInclude Include="Src\Application\Object\Player\Player.h" />
     <ClInclude Include="Src\Application\Object\Rock\Rock.h" />
-    <ClInclude Include="Src\Application\Object\Saturn\Saturn.h" />
     <ClInclude Include="Src\Application\Object\Sky\Sky.h" />
     <ClInclude Include="Src\Application\Scene\BaseScene\BaseScene.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\GameScene.h" />
@@ -204,9 +204,9 @@
     <ClCompile Include="Src\Application\Object\Camera\CameraBase.cpp" />
     <ClCompile Include="Src\Application\Object\Camera\TPSCamera\TPSCamera.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\Enemy.cpp" />
+    <ClCompile Include="Src\Application\Object\MotherEnemy\MotherEnemy.cpp" />
     <ClCompile Include="Src\Application\Object\Player\Player.cpp" />
     <ClCompile Include="Src\Application\Object\Rock\Rock.cpp" />
-    <ClCompile Include="Src\Application\Object\Saturn\Saturn.cpp" />
     <ClCompile Include="Src\Application\Object\Sky\Sky.cpp" />
     <ClCompile Include="Src\Application\Scene\BaseScene\BaseScene.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp" />

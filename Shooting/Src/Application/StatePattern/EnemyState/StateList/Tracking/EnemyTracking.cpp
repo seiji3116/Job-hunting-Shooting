@@ -3,7 +3,7 @@
 void EnemyTracking::Init()
 {
 	m_model = std::make_shared<KdModelWork>();
-	m_model->SetModelData(KdAssets::Instance().m_modeldatas.GetData("Asset/Models/Enemy/Enemy.gltf"));
+	m_model->SetModelData(KdAssets::Instance().m_modeldatas.GetData("Asset/Models/Enemy/NormalEnemy.gltf"));
 
 	m_moveSpd = 0.5f;
 	m_actionEndFlg = true;
@@ -11,7 +11,7 @@ void EnemyTracking::Init()
 
 void EnemyTracking::Update()
 {
-	Math::Vector3 vMove = m_mWorld.Forward();
+	Math::Vector3 vMove = m_mWorld.Backward();
 	vMove.Normalize();
 
 	vMove *= m_moveSpd;
@@ -36,7 +36,7 @@ void EnemyTracking::Action()
 
 void EnemyTracking::Rotate(Math::Vector3 _targetDir)
 {
-	Math::Vector3 nowDir = m_mWorld.Forward();
+	Math::Vector3 nowDir = m_mWorld.Backward();
 	nowDir.Normalize();
 	_targetDir.Normalize();
 
