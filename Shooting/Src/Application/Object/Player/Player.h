@@ -1,6 +1,5 @@
 #pragma once
 
-class TPSCamera;
 class BaseScene;
 class Rock;
 
@@ -18,11 +17,6 @@ public:
 	void DrawBright()override;
 	void DrawLit()override;
 	void Init()override;
-
-	void SetCamera(const std::shared_ptr<TPSCamera> camera)
-	{
-		m_camera = camera;
-	}
 
 	void SetOener(std::shared_ptr<BaseScene> _owner)
 	{
@@ -62,7 +56,6 @@ private:
 	};
 
 	std::shared_ptr<KdModelWork> m_model;	// モデル情報
-	std::weak_ptr<TPSCamera> m_camera;		// カメラ情報
 	float m_roll = 0;						// z軸用回転量
 	float m_pitch = 0;						// x軸用回転量
 

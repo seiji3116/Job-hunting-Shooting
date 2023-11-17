@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 class KdDebugWireFrame;
+class CameraBase;
 
 // ゲーム上に存在するすべてのオブジェクトの基底となるクラス
 class KdGameObject : public std::enable_shared_from_this<KdGameObject>
@@ -47,6 +48,26 @@ public:
 	virtual Math::Vector3 GetScale() const;
 
 	const Math::Matrix& GetMatrix() const { return m_mWorld; }
+	void SetMatrix(const Math::Matrix& _mWorld) { m_mWorld = _mWorld; }
+
+	// add: 
+	const std::weak_ptr<CameraBase>& GetCamera() const { return m_camera; }
+
+	// add: モデルをセットする関数
+	void SetModel(const std::shared_ptr<KdModelWork>& _model) 
+	{
+		m_model = std::make_shared<KdModelWork>();
+		m_model = _model;
+	}
+
+	// add:
+	virtual Math::Vector3 GetTargetDir() const { return m_targetDir; }
+	virtual Math::Vector3 GetTargetPos() const { return m_targetPos; };
+
+	void SetCamera(const std::shared_ptr<CameraBase> _camera)
+	{
+		m_camera = _camera;
+	}
 
 	virtual bool IsExpired() const { return m_isExpired; }
 
@@ -80,6 +101,15 @@ protected:
 
 	// 3D空間に存在する機能
 	Math::Matrix	m_mWorld;
+
+	// add: 
+	Math::Vector3	m_targetDir;
+	Math::Vector3	m_targetPos;
+
+	std::weak_ptr<CameraBase> m_camera;		// カメラ情報
+
+	// モデル用
+	std::shared_ptr<KdModelWork> m_model = nullptr;
 
 	// 当たり判定クラス
 	std::unique_ptr<KdCollider> m_pCollider = nullptr;

@@ -14,7 +14,6 @@ struct CollisionMeshResult
 // レイの当たり判定
 bool PolygonsIntersect(const KdPolygon& poly, const DirectX::XMVECTOR& rayPos, const DirectX::XMVECTOR& rayDir, float rayRange,
 	const DirectX::XMMATRIX& matrix, CollisionMeshResult* pResult = nullptr);
-//bool PolygonsIntersect(const KdPolygon& poly);
 bool MeshIntersect(const KdMesh& mesh, const DirectX::XMVECTOR& rayPos, const DirectX::XMVECTOR& rayDir, float rayRange,
 	const DirectX::XMMATRIX& matrix, CollisionMeshResult* pResult = nullptr);
 
@@ -22,6 +21,12 @@ bool MeshIntersect(const KdMesh& mesh, const DirectX::XMVECTOR& rayPos, const Di
 bool PolygonsIntersect(const KdPolygon& poly, const DirectX::BoundingSphere& sphere,
 	const DirectX::XMMATRIX& matrix, CollisionMeshResult* pResult = nullptr);
 bool MeshIntersect(const KdMesh& mesh, const DirectX::BoundingSphere& sphere,
+	const DirectX::XMMATRIX& matrix, CollisionMeshResult* pResult = nullptr);
+
+// add: obbの当たり判定
+bool PolygonsIntersect(const KdPolygon& poly, const DirectX::BoundingOrientedBox& obb,
+	const DirectX::XMMATRIX& matrix, CollisionMeshResult* pResult = nullptr);
+bool MeshIntersect(const KdMesh& mesh, const DirectX::BoundingOrientedBox& obb,
 	const DirectX::XMMATRIX& matrix, CollisionMeshResult* pResult = nullptr);
 
 // 点 vs 三角形面との最近接点を求める

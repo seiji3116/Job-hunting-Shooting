@@ -395,6 +395,31 @@ bool MeshIntersect(const KdMesh& mesh, const DirectX::BoundingSphere& sphere,
 	return isHit;
 }
 
+// ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+// add: obbの当たり判定
+// ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+static void InvertObbInfo(DirectX::XMVECTOR& obbPosInv, DirectX::XMVECTOR& sphereScale, float& radiusSqr,
+	const DirectX::XMMATRIX& matrix, const DirectX::BoundingOrientedBox& obb)
+{
+
+}
+
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+// add: obb対ポリゴン(KdMesh以外の任意の多角形ポリゴン)の当たり判定本体
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+bool PolygonsIntersect(const KdPolygon& poly, const DirectX::BoundingOrientedBox& obb, const DirectX::XMMATRIX& matrix, CollisionMeshResult* pResult)
+{
+	return false;
+}
+
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+// add: obb対メッシュの当たり判定本体
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+bool MeshIntersect(const KdMesh& mesh, const DirectX::BoundingOrientedBox& obb, const DirectX::XMMATRIX& matrix, CollisionMeshResult* pResult)
+{
+	return false;
+}
+
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 // 点 vs 面を形成する三角形との最近接点を求める
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////

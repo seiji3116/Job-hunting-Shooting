@@ -149,6 +149,7 @@
     <ClInclude Include="Src\Application\Object\Camera\CameraBase.h" />
     <ClInclude Include="Src\Application\Object\Camera\TPSCamera\TPSCamera.h" />
     <ClInclude Include="Src\Application\Object\Enemy\Enemy.h" />
+    <ClInclude Include="Src\Application\Object\Laser\Laser.h" />
     <ClInclude Include="Src\Application\Object\MotherEnemy\MotherEnemy.h" />
     <ClInclude Include="Src\Application\Object\Player\Player.h" />
     <ClInclude Include="Src\Application\Object\Rock\Rock.h" />
@@ -157,12 +158,12 @@
     <ClInclude Include="Src\Application\Scene\GameScene\GameScene.h" />
     <ClInclude Include="Src\Application\Scene\SceneManager.h" />
     <ClInclude Include="Src\Application\Scene\TitleScene\TitleScene.h" />
-    <ClInclude Include="Src\Application\StatePattern\EnemyState\EnemyBaseState.h" />
-    <ClInclude Include="Src\Application\StatePattern\EnemyState\EnemyStateManager.h" />
-    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Laser\EnemyLaser.h" />
-    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Normal\EnemyNormal.h" />
-    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Rush\EnemyRush.h" />
-    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Tracking\EnemyTracking.h" />
+    <ClInclude Include="Src\Application\StatePattern\BaseState.h" />
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\Laser\EnemyLaser.h" />
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\Normal\EnemyNormal.h" />
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\Rush\EnemyRush.h" />
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\Tracking\EnemyTracking.h" />
+    <ClInclude Include="Src\Application\StatePattern\StateManager.h" />
     <ClInclude Include="Src\Framework\Direct3D\KdMaterial.h" />
     <ClInclude Include="Src\Framework\Direct3D\Polygon\KdPolygon.h" />
     <ClInclude Include="Src\Framework\Direct3D\Polygon\KdSquarePolygon.h" />
@@ -204,6 +205,7 @@
     <ClCompile Include="Src\Application\Object\Camera\CameraBase.cpp" />
     <ClCompile Include="Src\Application\Object\Camera\TPSCamera\TPSCamera.cpp" />
     <ClCompile Include="Src\Application\Object\Enemy\Enemy.cpp" />
+    <ClCompile Include="Src\Application\Object\Laser\Laser.cpp" />
     <ClCompile Include="Src\Application\Object\MotherEnemy\MotherEnemy.cpp" />
     <ClCompile Include="Src\Application\Object\Player\Player.cpp" />
     <ClCompile Include="Src\Application\Object\Rock\Rock.cpp" />
@@ -212,11 +214,11 @@
     <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Src\Application\Scene\SceneManager.cpp" />
     <ClCompile Include="Src\Application\Scene\TitleScene\TitleScene.cpp" />
-    <ClCompile Include="Src\Application\StatePattern\EnemyState\EnemyStateManager.cpp" />
-    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Laser\EnemyLaser.cpp" />
-    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Normal\EnemyNormal.cpp" />
-    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Rush\EnemyRush.cpp" />
-    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Tracking\EnemyTracking.cpp" />
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\Laser\EnemyLaser.cpp" />
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\Normal\EnemyNormal.cpp" />
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\Rush\EnemyRush.cpp" />
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\Tracking\EnemyTracking.cpp" />
+    <ClCompile Include="Src\Application\StatePattern\StateManager.cpp" />
     <ClCompile Include="Src\Framework\Direct3D\KdMaterial.cpp">
       <SubType>
       </SubType>

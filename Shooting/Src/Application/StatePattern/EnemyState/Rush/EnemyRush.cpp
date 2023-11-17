@@ -1,9 +1,11 @@
 #include "EnemyRush.h"
 
-void EnemyRush::Init()
+void EnemyRush::Init(KdGameObject& _owner)
 {
 	m_model = std::make_shared<KdModelWork>();
 	m_model->SetModelData(KdAssets::Instance().m_modeldatas.GetData("Asset/Models/Enemy/NormalEnemy.gltf"));
+
+	_owner.SetModel(m_model);
 
 	m_moveSpd = 0;
 	m_standCnt = 100;
@@ -12,9 +14,9 @@ void EnemyRush::Init()
 	m_actionEndFlg = false;
 }
 
-void EnemyRush::Update()
+void EnemyRush::Update(KdGameObject& _owner)
 {
-	Action();
+	Action(_owner);
 
 	Math::Vector3 vMove = m_mWorld.Backward();
 	vMove.Normalize();
@@ -25,19 +27,17 @@ void EnemyRush::Update()
 
 	if (!m_rashFlg)
 	{
-		Rotate(m_targetDir);
+		Rotate(_owner.GetTargetDir());
 	}
+
+	_owner.SetMatrix(m_mWorld);
 }
 
-void EnemyRush::PostUpdate()
+void EnemyRush::Shot(KdGameObject& _owner)
 {
 }
 
-void EnemyRush::Shot()
-{
-}
-
-void EnemyRush::Action()
+void EnemyRush::Action(KdGameObject& _owner)
 {
 	Stand();
 	Rush();
@@ -90,7 +90,7 @@ void EnemyRush::Rotate(Math::Vector3 _targetDir)
 	Math::Matrix rotation;
 	rotation = Math::Matrix::CreateFromAxisAngle(rotAxis, DirectX::XMConvertToRadians(rotateAng));
 
-	Math::Vector3 pos = GetPos();
+	Math::Vector3 pos = m_mWorld.Translation();
 	m_mWorld.Translation(Math::Vector3(0, 0, 0));
 
 	m_mWorld *= rotation;

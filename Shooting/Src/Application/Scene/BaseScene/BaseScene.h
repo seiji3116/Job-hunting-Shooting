@@ -16,8 +16,6 @@ public:
 	void DrawSprite();
 	void DrawDebug();
 
-	//virtual void Release();
-
 	const std::list<std::shared_ptr<KdGameObject>> GetObjList()
 	{
 		return m_objList;

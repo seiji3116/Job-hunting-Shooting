@@ -7,6 +7,8 @@
 #include "../../Object/MotherEnemy/MotherEnemy.h"
 #include "../SceneManager.h"
 
+#include "../../Object/Laser/Laser.h"
+
 void GameScene::Event()
 {
 	if (GetAsyncKeyState('P'))
@@ -25,11 +27,15 @@ void GameScene::Init()
 	mEnemy = std::make_shared<MotherEnemy>();
 	AddObject(mEnemy);
 
-	std::shared_ptr<Enemy> enemy;
-	enemy = std::make_shared<Enemy>();
-	enemy->SetPlayer(player);
-	enemy->SetState("Normal");
-	AddObject(enemy);
+	//std::shared_ptr<Enemy> enemy;
+	//enemy = std::make_shared<Enemy>();
+	//enemy->SetPlayer(player);
+	//enemy->SetState("Normal");
+	//AddObject(enemy);
+
+	std::shared_ptr<TPSCamera> camera = std::make_shared<TPSCamera>();
+	camera->SetTarget(player);
+	AddObject(camera);
 
 	for (int i = 0; i < 3; i++)
 	{
@@ -38,6 +44,7 @@ void GameScene::Init()
 		enemy->SetState("Laser");
 		enemy->SetPlayer(player);
 		enemy->SetPos(mEnemy->GetNodePos(i));
+		enemy->SetCamera(camera);
 		AddObject(enemy);
 	}
 
@@ -57,9 +64,4 @@ void GameScene::Init()
 	sky = std::make_shared<Sky>();
 	sky->SetPlayer(player);
 	AddObject(sky);
-
-	std::shared_ptr<TPSCamera> camera = std::make_shared<TPSCamera>();
-	player->SetCamera(camera);
-	camera->SetTarget(player);
-	AddObject(camera);
 }

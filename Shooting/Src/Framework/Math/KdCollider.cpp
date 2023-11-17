@@ -56,6 +56,11 @@ void KdCollider::RegisterCollisionShape(std::string_view name, const std::shared
 	RegisterCollisionShape(name, std::make_unique<KdPolygonCollision>(polygon, type));
 }
 
+void KdCollider::RegisterCollisionShape(std::string_view name, const DirectX::BoundingOrientedBox& obbBox, UINT type)
+{
+	RegisterCollisionShape(name, std::make_unique<ObbCollision>(obbBox, type));
+}
+
 ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 void KdCollider::RegisterCollisionShape(std::string_view name, KdPolygon* polygon, UINT type)
 {
@@ -138,6 +143,18 @@ bool KdCollider::Intersects(const RayInfo& targetShape, const Math::Matrix& owne
 	return isHit;
 }
 
+// add: 
+bool KdCollider::Intersects(const ObbInfo& targetShape, const Math::Matrix& ownerMatrix, std::list<KdCollider::CollisionResult>* pResults) const
+{
+	// 当たり判定無効のタイプの場合は返る
+	if (targetShape.m_type & m_disableType) { return false; }
+
+	// レイの方向ベクトルが存在しない場合は判定不能なのでそのまま返る
+
+	bool isHit = false;
+
+}
+
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
 // 任意のCollisionShapeを検索して有効/無効を切り替える
 // ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
@@ -177,6 +194,35 @@ void KdCollider::SetEnableAll(bool flag)
 	{
 		col.second->SetEnable(flag);
 	}
+}
+
+// ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+// ObbCollision
+// 箱型の形状
+// ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
+
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+// Obb vs 球の当たり判定
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+bool ObbCollision::Intersects(const DirectX::BoundingSphere& target, const Math::Matrix& world, KdCollider::CollisionResult* pRes)
+{
+	return false;
+}
+
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+// Obb vs レイの当たり判定
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+bool ObbCollision::Intersects(const KdCollider::RayInfo& target, const Math::Matrix& world, KdCollider::CollisionResult* pRes)
+{
+	return false;
+}
+
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+// Obb vs Obbの当たり判定
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+bool ObbCollision::Intersects(const DirectX::BoundingOrientedBox& target, const Math::Matrix& world, KdCollider::CollisionResult* pRes)
+{
+	return false;
 }
 
 
@@ -260,6 +306,14 @@ bool KdSphereCollision::Intersects(const KdCollider::RayInfo& target, const Math
 	}
 
 	return isHit;
+}
+
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+// 球 vs Obbの当たり判定
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+bool KdSphereCollision::Intersects(const DirectX::BoundingOrientedBox& target, const Math::Matrix& world, KdCollider::CollisionResult* pRes)
+{
+	return false;
 }
 
 
@@ -405,6 +459,11 @@ bool KdModelCollision::Intersects(const KdCollider::RayInfo& target, const Math:
 	return isHit;
 }
 
+bool KdModelCollision::Intersects(const DirectX::BoundingOrientedBox& target, const Math::Matrix& world, KdCollider::CollisionResult* pRes)
+{
+	return false;
+}
+
 
 // ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
 // PolygonCollision
@@ -472,4 +531,12 @@ bool KdPolygonCollision::Intersects(const KdCollider::RayInfo& target, const Mat
 	}
 
 	return true;
+}
+
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+// Obb vs 多角形ポリゴン(頂点の集合体)の当たり判定
+// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// ///// /////
+bool KdPolygonCollision::Intersects(const DirectX::BoundingOrientedBox& target, const Math::Matrix& world, KdCollider::CollisionResult* pRes)
+{
+	return false;
 }

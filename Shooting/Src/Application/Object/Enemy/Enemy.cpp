@@ -7,16 +7,13 @@ void Enemy::Update()
 
 	if (spPlayer)
 	{
-		Math::Vector3 targetDir = spPlayer->GetPos() - m_mWorld.Translation();
-
-		m_stateMan->SetTargetPos(spPlayer->GetPos());
+		m_targetDir = spPlayer->GetPos() - m_mWorld.Translation();
+		m_targetPos = spPlayer->GetPos();
 		m_stateMan->SetPos(m_mWorld.Translation());
-		m_stateMan->Update();
-		m_mWorld = m_stateMan->GetMatrix();
-		m_stateMan->SetTargetDir(targetDir);
+		m_stateMan->Update(*this);
 
 		//if (m_stateMan->GetActionEndFlg())
-		//{]
+		//{
 		//	if (targetDir.Length() > 2)
 		//	{
 		//		m_stateMan->ChengeTracking();
@@ -51,29 +48,26 @@ void Enemy::PostUpdate()
 void Enemy::SetState(const std::string& _stateName)
 {
 	// ステートセット関数
-	m_stateMan = std::make_unique<EnemyStateManager>();
+	m_stateMan = std::make_unique<StateManager>();
 	if (_stateName == "Normal")
 	{
-		m_stateMan->ChengeNormal();
+		m_stateMan->ChengeNormal(*this);
 		m_nowState = State::Normal;
 	}
 	else if(_stateName == "Laser")
 	{
-		m_stateMan->ChengeLaser();
+		m_stateMan->ChengeLaser(*this);
 		m_nowState = State::Laser;
 	}
 	else if (_stateName == "Rush")
 	{
-		m_stateMan->ChengeRush();
+		m_stateMan->ChengeRush(*this);
 		m_nowState = State::Rush;
 	}
 	else
 	{
 		return;
 	}
-
-	m_model = std::make_shared<KdModelWork>();
-	m_model = m_stateMan->GetModel();
 }
 
 void Enemy::GenerateDepthMapFromLight()
@@ -89,6 +83,8 @@ void Enemy::DrawLit()
 void Enemy::Init()
 {
 	m_moveDir = Math::Vector3(0, 0, 1);
+
+	m_model = std::make_shared<KdModelWork>();
 
 	// デバッグワイヤーセット
 	m_pDebugWire = std::make_unique<KdDebugWireFrame>();

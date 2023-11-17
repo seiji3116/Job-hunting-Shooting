@@ -1,5 +1,5 @@
 #pragma once
-#include "../../StatePattern/EnemyState/EnemyStateManager.h"
+#include "../../StatePattern/StateManager.h"
 
 class Player;
 
@@ -33,13 +33,10 @@ private:
 	};
 
 private:
-	std::unique_ptr<EnemyStateManager> m_stateMan;
+	std::unique_ptr<StateManager> m_stateMan;
 
 	std::weak_ptr<Player> m_wpPlayer;
 
-	std::shared_ptr<KdModelWork> m_model;
-
-	//Math::Vector3 m_pos;
 	Math::Vector3 m_moveDir;
 	Math::Vector3 m_scale;
 	Math::Matrix m_transMat;				// ˆÚ“®s—ñ

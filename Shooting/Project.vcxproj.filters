@@ -103,23 +103,23 @@
     <Filter Include="Src\Application\StatePattern\EnemyState">
       <UniqueIdentifier>{9cf3a52a-5e79-4d98-bea9-e666e484b536}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\StatePattern\EnemyState\StateList">
-      <UniqueIdentifier>{3e723566-61eb-48f1-a436-d803091539f3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\StatePattern\EnemyState\StateList\Normal">
-      <UniqueIdentifier>{dece9b40-a0ce-45b0-b304-d968a1e9b4b6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\StatePattern\EnemyState\StateList\Rush">
-      <UniqueIdentifier>{31e43c33-6fc4-4fdc-b05e-0eab6a12048d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\StatePattern\EnemyState\StateList\Laser">
-      <UniqueIdentifier>{d8db2ad7-bfdb-46e8-8bcc-90be4c9e184c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\StatePattern\EnemyState\StateList\Tracking">
-      <UniqueIdentifier>{bdc08475-252e-4e12-8982-fa2be0e28bcf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Application\Object\MotherEnemy">
       <UniqueIdentifier>{9e22f968-8f60-4933-bff6-e90af2324660}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Object\Laser">
+      <UniqueIdentifier>{ca48df5b-d22d-480b-ae69-4711588c5036}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\StatePattern\EnemyState\Laser">
+      <UniqueIdentifier>{a3b6a753-5f30-4ef2-b592-6e5c7c23803c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\StatePattern\EnemyState\Normal">
+      <UniqueIdentifier>{1d349e25-3a12-4875-b8e8-5ee522b38491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\StatePattern\EnemyState\Rush">
+      <UniqueIdentifier>{0db500c1-f766-479d-8412-f3aa5a908ad6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\StatePattern\EnemyState\Tracking">
+      <UniqueIdentifier>{e98c8013-5a3c-40f4-8994-6a9dcaaff6bd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -276,26 +276,29 @@
     <ClInclude Include="Src\Application\Object\Rock\Rock.h">
       <Filter>Src\Application\Object\Rock</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\StatePattern\EnemyState\EnemyBaseState.h">
-      <Filter>Src\Application\StatePattern\EnemyState</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\StatePattern\EnemyState\EnemyStateManager.h">
-      <Filter>Src\Application\StatePattern\EnemyState</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Laser\EnemyLaser.h">
-      <Filter>Src\Application\StatePattern\EnemyState\StateList\Laser</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Rush\EnemyRush.h">
-      <Filter>Src\Application\StatePattern\EnemyState\StateList\Rush</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Normal\EnemyNormal.h">
-      <Filter>Src\Application\StatePattern\EnemyState\StateList\Normal</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\StatePattern\EnemyState\StateList\Tracking\EnemyTracking.h">
-      <Filter>Src\Application\StatePattern\EnemyState\StateList\Tracking</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Object\MotherEnemy\MotherEnemy.h">
       <Filter>Src\Application\Object\MotherEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Object\Laser\Laser.h">
+      <Filter>Src\Application\Object\Laser</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\StatePattern\BaseState.h">
+      <Filter>Src\Application\StatePattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\StatePattern\StateManager.h">
+      <Filter>Src\Application\StatePattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\Laser\EnemyLaser.h">
+      <Filter>Src\Application\StatePattern\EnemyState\Laser</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\Normal\EnemyNormal.h">
+      <Filter>Src\Application\StatePattern\EnemyState\Normal</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\Rush\EnemyRush.h">
+      <Filter>Src\Application\StatePattern\EnemyState\Rush</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\StatePattern\EnemyState\Tracking\EnemyTracking.h">
+      <Filter>Src\Application\StatePattern\EnemyState\Tracking</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -431,23 +434,26 @@
     <ClCompile Include="Src\Application\Object\Rock\Rock.cpp">
       <Filter>Src\Application\Object\Rock</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\StatePattern\EnemyState\EnemyStateManager.cpp">
-      <Filter>Src\Application\StatePattern\EnemyState</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Laser\EnemyLaser.cpp">
-      <Filter>Src\Application\StatePattern\EnemyState\StateList\Laser</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Rush\EnemyRush.cpp">
-      <Filter>Src\Application\StatePattern\EnemyState\StateList\Rush</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Normal\EnemyNormal.cpp">
-      <Filter>Src\Application\StatePattern\EnemyState\StateList\Normal</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\StatePattern\EnemyState\StateList\Tracking\EnemyTracking.cpp">
-      <Filter>Src\Application\StatePattern\EnemyState\StateList\Tracking</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\Object\MotherEnemy\MotherEnemy.cpp">
       <Filter>Src\Application\Object\MotherEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Laser\Laser.cpp">
+      <Filter>Src\Application\Object\Laser</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\StatePattern\StateManager.cpp">
+      <Filter>Src\Application\StatePattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\Laser\EnemyLaser.cpp">
+      <Filter>Src\Application\StatePattern\EnemyState\Laser</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\Normal\EnemyNormal.cpp">
+      <Filter>Src\Application\StatePattern\EnemyState\Normal</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\Rush\EnemyRush.cpp">
+      <Filter>Src\Application\StatePattern\EnemyState\Rush</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\StatePattern\EnemyState\Tracking\EnemyTracking.cpp">
+      <Filter>Src\Application\StatePattern\EnemyState\Tracking</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
