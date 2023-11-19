@@ -26,7 +26,7 @@ Math::Vector3 MotherEnemy::GetNodePos(int _num)
 
 	if (pNode)
 	{
-		return pNode->m_worldTransform.Translation();
+		return pNode->m_worldTransform.Translation() + m_mWorld.Translation();
 	}
 	return Math::Vector3::Zero;
 }
@@ -37,8 +37,9 @@ void MotherEnemy::Init()
 	m_model->SetModelData(KdAssets::Instance().m_modeldatas.GetData("Asset/Models/Enemy/MotherEnemy.gltf"));
 
 	m_pos = Math::Vector3::Zero;
-	m_mWorld = Math::Matrix::Identity;
-	m_transMat = Math::Matrix::Identity;
-	m_rotateMat = Math::Matrix::Identity;
+	m_transMat = Math::Matrix::CreateTranslation(Math::Vector3(0, 0, 150));
+	m_rotateMat = Math::Matrix::CreateRotationY(DirectX::XMConvertToRadians(180));
 	m_scaleMat = Math::Matrix::Identity;
+
+	m_mWorld = m_scaleMat * m_rotateMat * m_transMat;
 }

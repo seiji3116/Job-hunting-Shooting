@@ -5,6 +5,7 @@
 #include "../../Object/Rock/Rock.h"
 #include "../../Object/Enemy/Enemy.h"
 #include "../../Object/MotherEnemy/MotherEnemy.h"
+#include "../../Object/Base/Base.h"
 #include "../SceneManager.h"
 
 #include "../../Object/Laser/Laser.h"
@@ -22,6 +23,10 @@ void GameScene::Init()
 	std::shared_ptr<Player> player;
 	player = std::make_shared<Player>();
 	AddObject(player);
+
+	std::shared_ptr<Base> base;
+	base = std::make_shared<Base>();
+	AddObject(base);
 
 	std::shared_ptr<MotherEnemy> mEnemy;
 	mEnemy = std::make_shared<MotherEnemy>();

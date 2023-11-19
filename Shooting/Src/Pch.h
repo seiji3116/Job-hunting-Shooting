@@ -87,3 +87,16 @@
 //===============================================
 #include "Framework/KdFramework.h"
 
+//===============================================
+// Effekseer
+//===============================================
+#ifdef _DEBUG
+#pragma comment(lib, "Effekseerd.lib")
+#pragma comment(lib, "EffekseerRendererDX11d.lib")
+#else
+#pragma comment(lib, "Effekseer.lib")
+#pragma comment(lib, "EffekseerRendererDX11.lib")
+#endif // _DEBUG
+
+#include <Effekseer.h>
+#include <EffekseerRendererDX11.h>

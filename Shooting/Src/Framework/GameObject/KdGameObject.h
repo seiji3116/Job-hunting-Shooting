@@ -109,7 +109,7 @@ protected:
 	std::weak_ptr<CameraBase> m_camera;		// カメラ情報
 
 	// モデル用
-	std::shared_ptr<KdModelWork> m_model = nullptr;
+	std::shared_ptr<KdModelWork> m_model;
 
 	// 当たり判定クラス
 	std::unique_ptr<KdCollider> m_pCollider = nullptr;

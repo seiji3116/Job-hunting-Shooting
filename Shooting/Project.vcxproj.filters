@@ -121,6 +121,12 @@
     <Filter Include="Src\Application\StatePattern\EnemyState\Tracking">
       <UniqueIdentifier>{e98c8013-5a3c-40f4-8994-6a9dcaaff6bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Object\Base">
+      <UniqueIdentifier>{9aa61e2f-d541-4c33-bef0-6376ff45ed0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Framework\Effecseer">
+      <UniqueIdentifier>{f79aa910-5b93-4179-8c4a-0948c7274a47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -300,6 +306,12 @@
     <ClInclude Include="Src\Application\StatePattern\EnemyState\Tracking\EnemyTracking.h">
       <Filter>Src\Application\StatePattern\EnemyState\Tracking</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Object\Base\Base.h">
+      <Filter>Src\Application\Object\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Framework\Effecseer\KdEffekseerManager.h">
+      <Filter>Src\Framework\Effecseer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -454,6 +466,12 @@
     </ClCompile>
     <ClCompile Include="Src\Application\StatePattern\EnemyState\Tracking\EnemyTracking.cpp">
       <Filter>Src\Application\StatePattern\EnemyState\Tracking</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Object\Base\Base.cpp">
+      <Filter>Src\Application\Object\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Framework\Effecseer\KdEffekseerManager.cpp">
+      <Filter>Src\Framework\Effecseer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
